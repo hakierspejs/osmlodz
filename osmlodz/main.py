@@ -87,8 +87,8 @@ def build_json_html(markers):
             for k, v in marker.__dict__.items()
             if ':' not in k and k not in ignore_tags and v is not None
         }
-        if marker.street is not None and marker.house_number is not None:
-            tags['address'] = f'{marker.street} {marker.house_number}'
+        if marker.street is not None and marker.housenumber is not None:
+            tags['address'] = f'{marker.street} {marker.housenumber}'
         for k, v in tags.items():
             desc.append(f'<b>{k}:</b> {v}')
         desc = list(sorted(desc))
@@ -107,5 +107,4 @@ def main_view():
 
 
 if __name__ == '__main__':
-    print(build_json_html(OPEN_PLACES))
     app.run(host='0.0.0.0')
